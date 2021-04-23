@@ -1,10 +1,4 @@
-Bootstrap Admin Theme [![Build Status](https://travis-ci.org/VinceG/Bootstrap-Admin-Theme.png?branch=master)](https://travis-ci.org/VinceG/Bootstrap-Admin-Theme)
-=====================
 
-##### If you are looking for the Admin theme designed for Bootstrap 3 please <a href='https://github.com/VinceG/Bootstrap-Admin-Theme-3' target="_blank">Click Here</a>
-
-
-A generic admin theme built with Bootstrap free for both personal and commercial use. 
 
 This is still a work in progress.
 
@@ -20,18 +14,10 @@ Pages:
 - Tables & Bootstrap dataTables
 - UI & Interface Elements (Modals, Popovers, Tooltips, Alerts, Notifications, Labels, Progress Bars)
 
-Demo:
-
-http://vinceg.github.com/Bootstrap-Admin-Theme
-
-<p>&copy; <a href='http://vadimg.com' target="_blank">Vadim Vincent Gabriel</a> <a href='https://twitter.com/gabrielva' target='_blank'>Follow @gabrielva</a> 2012</p>
-
 License
 ===============
 The MIT License (MIT)
-
-Copyright (c) 2013 - Vincent Gabriel
-
+Copyright (c) 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
