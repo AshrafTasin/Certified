@@ -1,0 +1,63 @@
+{
+    "name": "first-network-startech",
+    "version": "1.0.0",
+    "client": {
+        "organization": "STARTECH",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "STARTECH": {
+            "mspid": "STARTECHMSP",
+            "peers": [
+                "peer0.example.startech.com",
+                "peer1.example.startech.com"
+            ],
+            "certificateAuthorities": [
+                "ca.example.startech.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.example.startech.com": {
+            "url": "grpcs://localhost:9051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUUiS/qAzMEdwykBkQbGYWA6VHVYEwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDQxODE0MjEwMFoXDTM2MDQxNDE0MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEC/QVY88tAdOtug/pwGQt87gB\nd1GlW2029YUAbJz1IIbW8ktvzNn6TghbP+S+XTBkjULNNE6i6M1dFI9UaZ2LPqNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFLgUcR+ZxTdpPPw/kBMHEJce1hJpMAoGCCqGSM49BAMCA0gAMEUCIQD8kbU3YP/i\niz3Q+YBjfN08rnHPoBNtJLDmgR8+aiAjHgIgDNbRQjpJn5ljyL23Kkp6177ZRsNw\nZi2yDuRJxQacRoM=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.example.startech.com",
+                "hostnameOverride": "peer0.example.startech.com"
+            }
+        },
+	    
+        "peer1.example.startech.com": {
+            "url": "grpcs://localhost:10051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUUiS/qAzMEdwykBkQbGYWA6VHVYEwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDQxODE0MjEwMFoXDTM2MDQxNDE0MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEC/QVY88tAdOtug/pwGQt87gB\nd1GlW2029YUAbJz1IIbW8ktvzNn6TghbP+S+XTBkjULNNE6i6M1dFI9UaZ2LPqNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFLgUcR+ZxTdpPPw/kBMHEJce1hJpMAoGCCqGSM49BAMCA0gAMEUCIQD8kbU3YP/i\niz3Q+YBjfN08rnHPoBNtJLDmgR8+aiAjHgIgDNbRQjpJn5ljyL23Kkp6177ZRsNw\nZi2yDuRJxQacRoM=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.example.startech.com",
+                "hostnameOverride": "peer1.example.startech.com"
+            }
+        }
+
+	
+    },
+    "certificateAuthorities": {
+        "ca.example.startech.com": {
+            "url": "https://localhost:8054",
+            "caName": "ca.example.startech.com",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUUiS/qAzMEdwykBkQbGYWA6VHVYEwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDQxODE0MjEwMFoXDTM2MDQxNDE0MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEC/QVY88tAdOtug/pwGQt87gB\nd1GlW2029YUAbJz1IIbW8ktvzNn6TghbP+S+XTBkjULNNE6i6M1dFI9UaZ2LPqNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFLgUcR+ZxTdpPPw/kBMHEJce1hJpMAoGCCqGSM49BAMCA0gAMEUCIQD8kbU3YP/i\niz3Q+YBjfN08rnHPoBNtJLDmgR8+aiAjHgIgDNbRQjpJn5ljyL23Kkp6177ZRsNw\nZi2yDuRJxQacRoM=\n-----END CERTIFICATE-----\n"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

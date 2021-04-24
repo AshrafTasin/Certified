@@ -1,0 +1,63 @@
+{
+    "name": "first-network-sust",
+    "version": "1.0.0",
+    "client": {
+        "organization": "SUST",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "SUST": {
+            "mspid": "SUSTMSP",
+            "peers": [
+                "peer0.example.sust.edu",
+                "peer1.example.sust.edu"
+            ],
+            "certificateAuthorities": [
+                "ca.example.sust.edu"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.example.sust.edu": {
+            "url": "grpcs://localhost:7051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUJt2jltceZIgk9YjYYVDb2/TW4tgwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDQxODE0MjEwMFoXDTM2MDQxNDE0MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEQaVfEknWLU1XJy5eDx7Af4Li\nWw4z1gg3HAleXjDJ5BRludUrfdTO8Vm2gu41vlIXlV9RClRaTok+u9PtDPtEMaNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFF8eq7WiJ9J4a2AQJXTIS11YAEx9MAoGCCqGSM49BAMCA0gAMEUCIQC2/t7XNx2/\nnMSlKm6Abn7BDPoFWttq73yp7qsPYAjvvAIgfQVTIHvBFL+JYKv5WjG7RDiZQ8sU\nk821EeG5mtI43Y0=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.example.sust.edu",
+                "hostnameOverride": "peer0.example.sust.edu"
+            }
+        },
+	    
+        "peer1.example.sust.edu": {
+            "url": "grpcs://localhost:8051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUJt2jltceZIgk9YjYYVDb2/TW4tgwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDQxODE0MjEwMFoXDTM2MDQxNDE0MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEQaVfEknWLU1XJy5eDx7Af4Li\nWw4z1gg3HAleXjDJ5BRludUrfdTO8Vm2gu41vlIXlV9RClRaTok+u9PtDPtEMaNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFF8eq7WiJ9J4a2AQJXTIS11YAEx9MAoGCCqGSM49BAMCA0gAMEUCIQC2/t7XNx2/\nnMSlKm6Abn7BDPoFWttq73yp7qsPYAjvvAIgfQVTIHvBFL+JYKv5WjG7RDiZQ8sU\nk821EeG5mtI43Y0=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.example.sust.edu",
+                "hostnameOverride": "peer1.example.sust.edu"
+            }
+        }
+
+	
+    },
+    "certificateAuthorities": {
+        "ca.example.sust.edu": {
+            "url": "https://localhost:7054",
+            "caName": "ca.example.sust.edu",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUJt2jltceZIgk9YjYYVDb2/TW4tgwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDQxODE0MjEwMFoXDTM2MDQxNDE0MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEQaVfEknWLU1XJy5eDx7Af4Li\nWw4z1gg3HAleXjDJ5BRludUrfdTO8Vm2gu41vlIXlV9RClRaTok+u9PtDPtEMaNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFF8eq7WiJ9J4a2AQJXTIS11YAEx9MAoGCCqGSM49BAMCA0gAMEUCIQC2/t7XNx2/\nnMSlKm6Abn7BDPoFWttq73yp7qsPYAjvvAIgfQVTIHvBFL+JYKv5WjG7RDiZQ8sU\nk821EeG5mtI43Y0=\n-----END CERTIFICATE-----\n"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

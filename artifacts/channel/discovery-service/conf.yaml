@@ -1,0 +1,10 @@
+version: 0
+tlsconfig:
+  certpath: ""
+  keypath: ""
+  peercacertpath: ../crypto-config/peerOrganizations/example.sust.edu/peers/peer0.example.sust.edu/msp/tlscacerts/tlsca.example.sust.edu-cert.pem
+  timeout: 0s
+signerconfig:
+  mspid: SUSTMSP
+  identitypath: ../crypto-config/peerOrganizations/example.sust.edu/users/User1@example.sust.edu/msp/signcerts/User1@example.sust.edu-cert.pem
+  keypath: ../crypto-config/peerOrganizations/example.sust.edu/users/User1@example.sust.edu/msp/keystore/priv_sk

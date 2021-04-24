@@ -1,0 +1,14 @@
+[
+     {
+          "name": "MasterAgrement",
+          "policy": "OR('SUSTMSP.member', 'STARTECHMSP.member')",
+          "requiredPeerCount": 0,
+          "maxPeerCount": 2,
+          "blockToLive": 0,
+          "memberOnlyRead": true,
+          "memberOnlyWrite": true,
+          "endorsementPolicy": {
+               "signaturePolicy": "OR('SUSTMSP.member', 'STARTECHMSP.member')"
+          }
+     }
+]

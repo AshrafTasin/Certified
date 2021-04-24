@@ -1,0 +1,2 @@
+Installed chaincodes on peer:
+Package ID: smartcert_1:fd16823cdff776db6197f1b23fd8b1b1d537b67ed42d3dc406eb0764c1f916ab, Label: smartcert_1
