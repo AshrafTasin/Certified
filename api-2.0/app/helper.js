@@ -50,9 +50,9 @@ const getWalletPath = async (org) => {
 }
 
 
-const getAffiliation = async (org) => {
-    return org == "sust" ? 'sust.department1' : 'startech.department1'
-}
+// const getAffiliation = async (org) => {
+//     return org == "sust" ? 'sust.department1' : 'startech.department1'
+// }
 
 const registerUser = async (username, userOrg) => {
     let ccp = await getCCP(userOrg)
@@ -89,7 +89,8 @@ const registerUser = async (username, userOrg) => {
     let secret;
     try {
         // Register the user, enroll the user, and import the new identity into the wallet.
-        secret = await ca.register({ affiliation: await getAffiliation(userOrg), enrollmentID: username, role: 'client' }, adminUser);
+        // secret = await ca.register({ affiliation: await getAffiliation(userOrg), enrollmentID: username, role: 'client' }, adminUser);
+        secret = await ca.register({ enrollmentID: username, role: 'client' }, adminUser);
         // const secret = await ca.register({ affiliation: 'sust.department1', enrollmentID: username, role: 'client', attrs: [{ name: 'role', value: 'approver', ecert: true }] }, adminUser);
 
     } catch (error) {
@@ -211,6 +212,24 @@ const enrollAdmin = async (org, ccp) => {
     }
 }
 
+const getUser = async (username, orgName) => {
+    
+    const walletPath = await getWalletPath(orgName)
+    const wallet = await Wallets.newFileSystemWallet(walletPath);
+    console.log(`Wallet path: ${walletPath}`);
+
+    const userIdentity = await wallet.get(username);
+   
+    if (userIdentity) {
+        console.log(`An identity for the user ${orgName} exists in the wallet`);
+        
+        return orgName;
+    }
+
+    return null;
+
+}
+
 exports.registerUser = registerUser
 
 module.exports = {
@@ -218,4 +237,5 @@ module.exports = {
     getWalletPath: getWalletPath,
     registerUser: registerUser,
     isUserRegistered: isUserRegistered,
+    getUser: getUser,
 }
