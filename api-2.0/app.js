@@ -1,11 +1,11 @@
 // echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 // sudo fuser -k Port_Number/tcp
+// Internal watch failed: ENOSPC: System limit for number of file watchers reached
 
 'use strict';
 const log4js = require('log4js');
 const logger = log4js.getLogger('BasicNetwork');
 const http = require('http')
-const util = require('util');
 const express = require('express')
 const app = express();
 const jwt = require('jsonwebtoken');
@@ -13,8 +13,9 @@ const bearerToken = require('express-bearer-token');
 const cors = require('cors');
 const constants = require('./config/constants.json')
 const path = require('path')
-const passport = require('passport');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({limit:"100mb", extended: true })
 
 const host = process.env.HOST || constants.host;
 const port = process.env.PORT || constants.port;
@@ -23,33 +24,26 @@ const port = process.env.PORT || constants.port;
 const helper = require('./app/helper')
 const invoke = require('./app/invoke')
 const query = require('./app/query')
-const initPassport = require('./config/passport.js')
 
 app.options('*', cors());
 app.use(cors());
 app.use(cookieParser());
+app.use(bearerToken());
+
 app.use(express.json({limit:"100mb", extended: true }));
 app.use(express.urlencoded({limit:"100mb", extended: true }));
 
 
 
-// set secret variable
 app.set('secret', 'thisismysecret');
-app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css',express.static(path.join(__dirname, 'public/css')));
 app.use('/js',express.static(path.join(__dirname, 'public/js')));
 app.use('/img',express.static(path.join(__dirname, 'public/img')));
-
-
-
-app.use(bearerToken());
-
-
-initPassport(passport);
-
 
 logger.level = 'debug';
 
@@ -100,7 +94,6 @@ app.get('/login', (req,res) => {
 })
 
 app.get('/index',checkUser, (req,res) => {
-    console.log("Dhukse");
     res.render('index')
 })
 
@@ -148,7 +141,19 @@ app.get('/query', async function (req, res) {
             errorData: null
         }
 
-        res.send(response_payload);
+        res.render('result' ,{ 
+
+            name: message.name,
+            reg : message.reg,
+            dept: message.dept,
+            school: message.school,
+            year: message.year,
+            cgpa: message.cgpa,
+            lettergrade: message.lettergrade,
+            distinction: message.distinction,
+            imgurl: message.imgurl
+        });       
+
     } catch (error) {
         const response_payload = {
             result: null,
@@ -166,10 +171,25 @@ app.get('/logout', (req,res) => {
 
 })
 
-app.get('/info',checkUser,(req,res) => {
-    res.render('info')
+app.get('/stats',checkUser,(req,res) => {
+    res.render('stats')
 })
 
+
+app.get('/dashboard', (req,res) => {
+    
+    res.render('dashboard');
+
+})
+
+app.get('/result',checkUser,(req,res) => {
+    res.render('result')
+})
+
+
+app.get('/channelinfo',checkUser,(req,res) => {
+    res.render('channelinfo')
+})
 
 
 app.post('/register', async function (req, res) {
@@ -240,7 +260,7 @@ app.post('/login', async function (req, res) {
     }
 });
 
-app.post('/invoke',passport.authenticate('jwt',{session : false }),async function (req, res) {
+app.post('/invoke',checkUser,async function (req, res) {
     try {
         logger.debug('==================== INVOKE ON CHAINCODE ==================');
 

@@ -1,6 +1,6 @@
 
 var form = document.getElementById('logout')
-var reg
+
 form.addEventListener('submit',logOut)
 
 

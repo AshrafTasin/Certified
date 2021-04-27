@@ -1,0 +1,143 @@
+<html class=" ">
+
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+<style type="text/css" id="dark-mode-custom-style" lang="en"></style>
+<style type="text/css" id="dark-mode-native-style" lang="en"></style>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+    <link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+    <style type="text/css" id="dark-mode-custom-style" lang="en"></style>
+    <style type="text/css" id="dark-mode-native-style" lang="en"></style>
+    <link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+    <link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+    <style type="text/css" id="dark-mode-custom-style" lang="en"></style>
+    <style type="text/css" id="dark-mode-native-style" lang="en"></style>
+    <meta name="theme-color" content="#563d7c">
+    
+    <title>Admin Home Page</title>
+
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/styles.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/style.css" rel="stylesheet" >
+    <link href="/stylesheets/dashboard.css" rel="stylesheet">
+ 
+</head>
+
+<body>
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">Admin Panel</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav pull-right">
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-menu" data-toggle="dropdown"> <i class="icon-user"></i><b>CA-ADMIN</b><i class="caret"></i>
+    
+                                </a>
+                                <ul class="dropdown-menu">
+                                  
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a tabindex="0" href="/logout">Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3" id="sidebar">
+                <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                    <li class="active">
+                        <a href="/dashboard"><i class="icon-chevron-right"></i> Verify Student Certificate </a>
+                    </li>
+                    <li>
+                        <a href="/channelinfo"><i class="icon-chevron-right"></i> Channel Info </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="span9" id="content">
+                <div class="row-fluid">
+                    <div class="alert alert-success">
+                        
+                        <div class="navbar">
+
+                            <form id="query_form" class="sign-in-form" action="/query" method="GET">
+                                <h2 class="title"> Validate Certificate </h2>
+
+                                <div class="input-field">
+                                    <i class="fas fa-user"></i>
+                                        <input type="text" id="user_name" name="username" placeholder="User Name">
+                                </div>
+
+            
+                                <div class="input-field">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="org_name" name="orgname" placeholder="Organization Name">
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="channel_name" name="channelName" placeholder="Channel Name">
+                                </div>
+
+            
+                                <div class="input-field">
+                                    <i class="fas fa-user"></i>
+                                        <input type="text" id="chaincode_name" name="chaincodeName" placeholder="Chaincode Name">
+                                </div>
+                                
+                                <div class="input-field">
+                                    <i class="fas fa-user"></i>
+                                        <input type="text" id="reg" name="reg" placeholder="Student Registration Number">
+                                </div>
+
+                                <div class="submit_button" style="right: 100%;">
+                                    <input type="submit" class="btn" value="Submit" onclick="queryData()" />
+                                </div>
+
+                              </div>
+
+                        </div>
+
+                    </div>
+                
+                
+                
+                
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <p>&copy; BlockChain Project 350</p>
+        </footer>
+    </div>
+
+    <script src="/javascripts/query.js"> </script>
+    <!-- <script src="/javascripts/logout.js"> </script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</body></html>

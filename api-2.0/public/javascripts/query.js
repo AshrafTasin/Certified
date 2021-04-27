@@ -1,47 +1,50 @@
-const { User } = require("fabric-common")
 
-// var img64string,names,reg,dept,school,year,cgpa,grade,distinction
 var form = document.getElementById('query_form')
-var reg
-form.addEventListener('submit',submitData)
+var channel,chaincode,reg,user,org
+form.addEventListener('submit',queryData)
 
 
-async function submitData(){
+async function queryData(){
 
     event.preventDefault()
 
    
+    channel=document.getElementById('channel_name').value
+    chaincode=document.getElementById('chaincode_name').value
+    user=document.getElementById('user_name').value
+    org=document.getElementById('org_name').value
     reg=document.getElementById('reg').value
     
-    const result = await fetch('/query' +'?' + new URLSearchParams({
+    let url = '/query' +'?' + new URLSearchParams({
 
-        channelName :'channelbeta',
-        chaincodeName : 'smartcert',
-        args :'2017331014',
-        fcn : 'getStudentHistory',
-        username : 't1',
-        orgname : 'sust'
+        channelName :channel,
+        chaincodeName : chaincode,
+        args : reg,
+        fcn : 'queryStudent',
+        username : user,
+        orgname : org
 
-    }),  
-    {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
+    });
 
-    })
-    .then((res) => res.json())
+    console.log(url);
 
-    // console.log(JSON.parse(result))
+    // const result = await fetch( url,
+    // {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     }
 
-    console.log(result.result)
+    // })
+    // // .then((res) => res.json())
+    
+    // let data = await result.text();
+    // console.log(data);
 
-    // if (result.success) {
+    window.location.href = url ;
 
-    //     alert('Success')
-    //     localStorage.setItem('token', 'Bearer '+result.message.token)
-    //     location.replace("/index")
-    // } else {
-    //     alert(result.result)
+    // if(result.error == null){
+    //     location.assign('/result')
     // }
+
 }

@@ -1,0 +1,76 @@
+<html class=" ">
+
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+<style type="text/css" id="dark-mode-custom-style" lang="en"></style>
+<style type="text/css" id="dark-mode-native-style" lang="en"></style>
+
+<head>
+    <link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+    <link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+    <style type="text/css" id="dark-mode-custom-style" lang="en"></style>
+    <style type="text/css" id="dark-mode-native-style" lang="en"></style>
+    <link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+    <link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+    <style type="text/css" id="dark-mode-custom-style" lang="en"></style>
+    <style type="text/css" id="dark-mode-native-style" lang="en"></style>
+
+    <title>ClientSided Search </title>
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="assets/styles.css" rel="stylesheet" media="screen">
+    <link href="search.css" rel="stylesheet" media="screen">
+ 
+</head>
+
+
+<body>  
+
+
+    <div>
+      
+         <i 
+         style=" font-weight: 600; font-size: larger;
+         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif "
+         
+         >
+         Click a field to input </i>
+
+    </div>
+    <div class="container">
+        
+         
+        <div class="form-group">
+            <span>Reg. No.</span>
+            <input class="form-field" id="s_regno"type="text" placeholder="eg- 2017331064">
+        </div>
+        
+        <div class="form-group">
+            <input class="form-field"id="s_orgname" type="text" placeholder=" eg-ABC ind. ">
+            <span>Org. Name</span>
+        </div>
+
+        <div class="form-group">
+            <span>Org. Key</span>
+            <input class="form-field" id="s_orgpass" type="password" placeholder="your private key">
+        </div>
+        
+        <div class="form-group">
+            <input class="form-field" id="s_signature"type="text" placeholder=" eg-tell your CEO ">
+            <span>Signature</span>
+        </div>
+        <div class="form-group">
+            <span>example</span>
+            <input class="form-field" id="s_example" type="text" placeholder=" eg-yoyo">
+           
+        </div>
+
+    </div>   
+
+    <div   style=" margin-top: 500px;">
+
+        <a  style="margin-bottom: 5px;  margin-top: 300px;" href="thePagetoShowResult.html" onclick="searchReg()">Submit</a>
+    </div>
+
+    <script src="search.js"></script>
+</body>

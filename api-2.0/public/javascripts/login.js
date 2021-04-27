@@ -27,9 +27,6 @@ async function submitData(){
     // console.log(JSON.parse(result))
 
     if (result.success) {
-
-                
-        // localStorage.setItem('token', 'Bearer '+result.message.token)
         console.log(localStorage.getItem('token'))
         location.assign('home');
     } else {

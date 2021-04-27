@@ -34,16 +34,6 @@ RegisterPeer() {
         --id.attrs '"hf.Registrar.Roles=peer,client"' \
         --id.attrs hf.Revoker=true \
         --tls.certfiles ${PWD}/fabric-ca/tls-cert.pem
-
-    # fabric-ca-client register \
-    #     --caname ca.example.sust.edu \
-    #     --id.name peer3 \
-    #     --id.type peer \
-    #     --id.affiliation sust.department1 \
-    #     --id.attrs '"hf.Registrar.Roles=peer,client"' \
-    #     --id.attrs hf.Revoker=true \
-    #     --tls.certfiles ${PWD}/fabric-ca/tls-cert.pem
-
 }
 
 # RegisterPeer
