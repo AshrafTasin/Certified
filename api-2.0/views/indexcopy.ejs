@@ -21,7 +21,7 @@
     <style type="text/css" id="dark-mode-native-style" lang="en"></style>
     <meta name="theme-color" content="#563d7c">
     
-    <title> Dashboard </title>
+    <title>Admin Home Page</title>
 
 
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -40,7 +40,7 @@
                  <span class="icon-bar"></span>
                  <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="#"> Dashboard </a>
+                <a class="brand" href="#">Admin Panel</a>
                 
                 <div class="nav-collapse collapse">
                     <ul class="nav pull-right">
@@ -70,7 +70,6 @@
 
     <div class="container-fluid">
         <div class="row-fluid">
-           
             <div class="span3" id="sidebar">
                 <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                     <li class="active">
@@ -99,7 +98,7 @@
                 
                                     <div class="input-field">
                                         <i class="fas fa-user"></i>
-                                            <input type="text" id="std_reg" name="std_reg" placeholder="Registration No.">
+                                            <input type="text" id="std_reg" name="std_reg" placeholder="Student Registration No.">
                                     </div>
                 
                                     <div class="input-field">
@@ -140,7 +139,10 @@
                                   </div>
                                
 
-                                <div class="wrapper" style="left: 75%; margin-top: 650px ;">
+                                <div class="wrapper" style="left: 75%;  margin-top: 500px; ;
+                                
+                                   background: transparent;
+                                ">
 
                                     
                                     <div class="title"> Image Upload  </div>
@@ -153,7 +155,7 @@
                                             <input type="file" onchange="previewFile()"><br>
                                             
                                         </label>
-                                        <img src="" height="10" alt="Image preview...">
+                                        <img src="" height="5" alt="Image preview...">
                                     </div>
                             
                                     <div class="submit_button" style="right: 100%;">
@@ -161,17 +163,21 @@
                                     </div>
                                 </form>     
                         </div>
-                    </div> 
+                    </div>
+                
+                
+                
+                
             </div>
         </div>
-       
+        <hr>
         <footer>
-            <p class="text-center font-weight-bold">&copy; BlockChain Project 350</p>
+            <p>&copy; BlockChain Project 350</p>
         </footer>
     </div>
 
     <script src="/javascripts/index.js"> </script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="/javascripts/logout.js"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
     

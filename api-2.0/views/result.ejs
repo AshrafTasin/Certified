@@ -10,16 +10,20 @@
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 	
 	<link rel="stylesheet" href="/stylesheets/result.css">
-
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
 	</head>
 	
 
 	<body>
 		<div class="container">
-			<img src="https://preview.ibb.co/jkwJgp/exquisite_european_certificate_template_01_vector_0.jpg" height="720" width="1280" alt="certification" border="0">  
+			
+			<img src="https://preview.ibb.co/jkwJgp/exquisite_european_certificate_template_01_vector_0.jpg" height="720" width="1280" alt="certification" border="0">
+			
 			<div class="centered">
 			<img src="/images/logo.png" height="80" width="80" alt="Flying Kites"><br>
 			<span style="font-weight:bold">Certificate of Completion</span></br>
+			<br>
 			
 			<div class="form">
 			<span>
@@ -31,8 +35,10 @@
 				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
 				resize: horizontal;  background-color: transparent; 
 				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+				
+				font-family: 'Dancing Script', cursive; 
 				"         		 
-				rows="1" cols="6"  readonly > <%= name %> </textarea>
+				rows="1" cols="6" cols="aria-expanded" readonly > <%= name %> </textarea>
 		</div>
 	
 			<i>has obtained the degree of BSC of Four Year Duration in </i>
@@ -40,6 +46,7 @@
 				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
 				resize: horizontal;  background-color: transparent; 
 				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+				font-family: 'Dancing Script', cursive; 
 				"
          		 rows="1" cols="aria-expanded"  readonly> <%= dept %>  </textarea> 
 				under the school of 
@@ -47,6 +54,7 @@
 				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
 				resize: horizontal;  background-color: transparent; 
 				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+				font-family: 'Dancing Script', cursive; 
 				"
          		 rows="1" cols="aria-expanded"  readonly> <%= school %> </textarea> 
 		
@@ -57,6 +65,8 @@
 			scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
 			resize: horizontal;  background-color: transparent; 
 			padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+
+			font-family: 'Dancing Script', cursive; 
 			"         		 
 			rows="1" cols="6"  readonly > <%= year %> </textarea>
 			
@@ -66,27 +76,41 @@
 				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
 				resize: horizontal;  background-color: transparent; 
 				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+
+				font-family: 'Dancing Script', cursive; 
 				"         		 
 				rows="1" cols="6"  readonly > <%= lettergrade %> </textarea>
 
 			<span style="font-style: italic; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"  > 
 				equivalent to CGPA 
-				<textarea id="subject_letter_grade" name="story"  style=" border: none; width:30px; min-height: min-content;
+				<textarea id="subject_name" name="subject_name" class="subject_name"  style=" border: none; width: min-content; min-height: min-content;
 				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
 				resize: horizontal;  background-color: transparent; 
 				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
-				"         	
-				rows="1" cols="6"  readonly > <%= cgpa %>+ </textarea>
+				font-family: 'Dancing Script', cursive; 
+				"      	
+				rows="1" cols="6"  readonly > <%= cgpa %>  </textarea>
 
 				in a scale of 4.00
 			
 			<span style="font-weight:bold"> </span>
 			<p id="cdate"></p>
 				
+			<!-- </div>
+			<div class="picture" >
+				<img src="/images/logo.png" height="80" width="80" alt="Flying Kites"><br>
 			</div>
-			</div> 
+			</div> -->
+
+		</div>
+		<div class="picture" >
+			<img src="  <%= imgurl %> " alt="Flying Kites">  <br>
+		</div>
+		</div>
 			
-			<a tabindex="0" href="/dashboard"> Go Back to Dashboard </a>
+			<footer>
+				<p class="text-center font-weight-bold" >&copy; BlockChain Project 350</p>
+			</footer>
 			
 			<script src="/stylesheets/result.js"></script>
 	</body>

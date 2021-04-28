@@ -97,7 +97,7 @@ app.get('/index',checkUser, (req,res) => {
     res.render('index')
 })
 
-app.get('/query', async function (req, res) {
+app.get('/query',checkUser, async function (req, res) {
     try {
         logger.debug('==================== QUERY BY CHAINCODE ==================');
 
@@ -176,7 +176,7 @@ app.get('/stats',checkUser,(req,res) => {
 })
 
 
-app.get('/dashboard', (req,res) => {
+app.get('/dashboard',checkUser, (req,res) => {
     
     res.render('dashboard');
 
@@ -197,7 +197,7 @@ app.post('/register', async function (req, res) {
     var username = req.body.username;
     var orgName = req.body.orgName;
     
-    logger.debug('End point : /users');
+    logger.debug('End point : /register');
     logger.debug('User name : ' + username);
     logger.debug('Org name  : ' + orgName);
    
@@ -205,7 +205,7 @@ app.post('/register', async function (req, res) {
         res.json(getErrorMessage('\'username\''));
         return;
     }
-    if (!orgName) {
+    if (!orgName || (orgName!="sust" && orgName!="startech") ) {
         res.json(getErrorMessage('\'orgName\''));
         return;
     }
@@ -215,10 +215,10 @@ app.post('/register', async function (req, res) {
     logger.debug('-- returned from registering the username %s for organization %s', username, orgName);
     if (response && typeof response !== 'string') {
         logger.debug('Successfully registered the username %s for organization %s', username, orgName);
-        res.render('login.ejs')
+        res.json({ success: true});
     } else {
         logger.debug('Failed to register the username %s for organization %s with::%s', username, orgName, response);
-        res.json({ success: false, message: response });
+        res.json({ success: false });
     }
 
 });
@@ -228,7 +228,7 @@ app.post('/login', async function (req, res) {
     var username = req.body.userName;
     var orgName = req.body.orgName;
     
-    logger.debug('End point : /users');
+    logger.debug('End point : /login');
     logger.debug('User name : ' + username);
     logger.debug('Org name  : ' + orgName);
     
@@ -236,7 +236,7 @@ app.post('/login', async function (req, res) {
         res.json(getErrorMessage('\'username\''));
         return;
     }
-    if (!orgName) {
+    if (!orgName || (orgName!="sust" && orgName!="startech") ) {
         res.json(getErrorMessage('\'orgName\''));
         return;
     }
@@ -303,12 +303,9 @@ app.post('/invoke',checkUser,async function (req, res) {
     }
 });
 
-
-
-app.get('/data', (req, res) => {
-    res.render('query.ejs')
+app.get('/',(req,res)=>{
+    res.render('indexcopy')
 })
 
-app.get('/home', (req, res) => res.render('home'));
 
 

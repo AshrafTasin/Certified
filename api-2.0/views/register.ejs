@@ -15,18 +15,20 @@
     
     <div class="container">
 
-      <form class="form-signin" action="/register" method="POST">
+      <form class="form-signin" id='registration_form'>
         
             <h2 class="text-center">Please Register</h2>
 
             <input type="text" class="input-block-level" placeholder="Name" id="username" name="username">
             <input type="password" class="input-block-level" placeholder="Organization" id="orgname" name="orgName">
-            <button class="btn btn-large btn-primary" type="submit"> Register </button>
+            <button class="btn btn-large btn-primary" type="submit" onclick="submitData()"> Register </button>
       
         </form>
 
     </div> 
 
+    <script src="/javascripts/register.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
   

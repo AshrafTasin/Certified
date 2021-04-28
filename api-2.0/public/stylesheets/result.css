@@ -7,13 +7,35 @@
   outline: none;
   overflow: hidden;
 }
+.picture{
+
+  margin-left: 1175px;
+  padding-top: 50px;
+  margin-top: -665px;
+  width: 150px;
+  height: 150px;
+  padding: 60px;
+  overflow: hidden;
+
+}
+/* .centered {
+  position: absolute;
+  width:400px;
+  top: 28%;
+  left: 37%;
+} */
+
 .centered {
   position: absolute;
   width:400px;
-  top: 30%;
-  left: 37%;
-  /*transform: translate(-30%, -50%); */
+  top: 22%;
+  left: 39%;
+  margin-top: 140px;
 }
+footer{
+  
+}
+
 .form__group {
   position: unset;
   /* padding: 15px 0 0;

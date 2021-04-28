@@ -24,12 +24,30 @@ async function submitData(){
 
     }).then((res) => res.json())
 
-    // console.log(JSON.parse(result))
 
     if (result.success) {
         console.log(localStorage.getItem('token'))
-        location.assign('home');
+        
+        Swal.fire({
+            icon: 'success',
+            title: 'Login Successful!',
+          }).then(()=>{
+            if(orgName == "sust"){
+              location.assign('index');
+            }else if(orgName == "startech"){
+              location.assign('dashboard');
+            }
+           
+          })
+        
     } else {
-        alert(result.result)
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! Check Credentials Again!',
+          }).then(()=>{
+            location.assign('login');
+          })
     }
 }

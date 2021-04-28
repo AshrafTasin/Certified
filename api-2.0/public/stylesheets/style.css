@@ -19,10 +19,9 @@ input {
 }
 .wrapper{
 	position: relative;
-	transform: translate(-95%,-95%);
-	width: 50%;
+	transform: translate(-135%,-150%);
+	width: 30%;
   text-emphasis-color: inherit;
-	background: #efefef;
 }
 .container {
   position: relative;
@@ -173,12 +172,12 @@ form.sign-in-form {
 
 .btn {
   width: 150px;
-  background-color: #5995fd;
+  /* background-color: #5995fd; */
   border: none;
   outline: none;
   height: 49px;
   border-radius: 49px;
-  color: #fff;
+  /* color: #fff; */
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0;
@@ -186,9 +185,10 @@ form.sign-in-form {
   transition: 0.5s;
 }
 
-.btn:hover {
+/* .btn:hover {
   background-color: #4d84e2;
-}
+} */
+
 .panels-container {
   position: absolute;
   height: 100%;

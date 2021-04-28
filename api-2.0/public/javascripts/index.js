@@ -58,10 +58,14 @@ async function submitData(){
 
     console.log(result)
 
-    if (result.result === "Success") {
+    if (result.error == null) {
 
-        alert('Success')
-        location.reload()
+        Swal.fire({
+            icon: 'success',
+            title: 'Student Info Uploaded to Blockchain',
+          }).then(()=>{
+            location.replace('index');
+          })
     } else {
         alert(result.result)
     }
