@@ -15,6 +15,7 @@ setGlobalsForOrderer() {
 
 }
 
+
 setGlobalsForPeer0SUST() {
     export CORE_PEER_LOCALMSPID="SUSTMSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_SUST_CA

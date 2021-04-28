@@ -58,7 +58,7 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         return result
     } catch (error) {
         console.error(`Failed to evaluate transaction: ${error}`);
-        return error.message
+        return null
 
     }
 }

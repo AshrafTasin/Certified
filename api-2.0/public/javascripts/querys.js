@@ -15,7 +15,7 @@ async function queryData(){
     org=document.getElementById('org_name').value
     reg=document.getElementById('reg').value
     
-    let url = '/querystudentcert' +'?' + new URLSearchParams({
+    let url = '/query' +'?' + new URLSearchParams({
 
         channelName :channel,
         chaincodeName : chaincode,

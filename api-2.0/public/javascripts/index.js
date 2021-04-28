@@ -44,6 +44,16 @@ async function submitData(){
     console.log(args)
     console.log( localStorage.getItem('token') )
     console.log("Done")
+
+    if (names==undefined|| reg==undefined || dept==undefined|| school==undefined || 
+      year==undefined || cgpa ==undefined || grade ==undefined || distinction==undefined || 
+      img64string==undefined){
+        Swal.fire({
+          icon: 'error',
+          title: 'Fulfill Properly',
+        })
+       return;
+     }
     
     const result = await fetch('/invoke', {
         method: 'POST',

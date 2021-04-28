@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title> Certificate </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+	
+	<link rel="stylesheet" href="/stylesheets/result.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
+	</head>
+	
+
+	<body>
+
+		<div class="container">
+			
+			<img src="https://preview.ibb.co/jkwJgp/exquisite_european_certificate_template_01_vector_0.jpg" height="720" width="1280" alt="certification" border="0">
+			
+			<div class="centered">
+			<img src="/images/logo.png" height="80" width="80" alt="Flying Kites"><br>
+			<span style="font-weight:bold">Certificate of Completion</span></br>
+			<br>
+			
+			<div class="form">
+			<span>
+				<i>This is to certify that </i> 
+			</span>
+			<i>    </i> <br>
+			
+			<textarea id="subject_cgpa" name="story"  style=" border: none; 
+				overflow-x: hidden;
+				width: 350px;
+				text-align: center;
+		    	min-height: min-content;
+				scroll-margin: unset ; font-weight: bolder;  outline: hidden; 
+				resize: none;  background-color: transparent; 
+				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+				
+				font-family: 'Dancing Script', cursive; 
+				"         		 
+				rows="1" cols="6" cols="aria-expanded" readonly > <%= name %> </textarea>
+		</div>
+	
+			<i>has obtained the degree of </i>
+
+			<textarea id="subject_name" name="subject_name" class="subject_name"  style=" border: none; width: 145px; min-height: min-content;
+			scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
+			resize: none;  background-color: transparent; 
+			padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+			text-align: center;
+			font-family: 'Dancing Script', cursive; 
+			"
+			  rows="1" cols="aria-expanded"  readonly> <%= distinction %>  </textarea> 
+			
+			 of Four Year Duration in </i>
+				<textarea id="subject_name" name="subject_name" class="subject_name"  style=" border: none; width: 256px; min-height: min-content;
+				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
+				resize: none;  background-color: transparent; 
+				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+				text-align: center;
+				font-family: 'Dancing Script', cursive; 
+				"
+         		 rows="1" cols="aria-expanded"  readonly> <%= dept %>  </textarea> 
+				under the school of 
+				<textarea id="school_name" name="story"  style=" border: none; width:231px; min-height: min-content;
+				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
+				 background-color: transparent; resize: none; 
+				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+				
+				font-family: 'Dancing Script', cursive; 
+				"
+         		 rows="1" cols="aria-expanded"  readonly> <%= school %> </textarea> 
+		
+	    	</i>
+			<br>
+			<i> in this university at the examination of </i>
+			<textarea id="subject_cgpa" name="story"  style=" border: none; width: 56px; min-height: min-content;
+			scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
+			resize: none;  background-color: transparent; 
+			padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+
+			font-family: 'Dancing Script', cursive; 
+			"         		 
+			rows="1" cols="6"  readonly > <%= year %> </textarea>
+			
+			<i> and that he/she obtained a letter grade of  </i> 
+			
+				<textarea id="subject_cgpa" name="story"  style=" border: none; width: 34px; min-height: min-content;
+				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
+				resize: none;  background-color: transparent; 
+				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+
+				font-family: 'Dancing Script', cursive; 
+				"         		 
+				rows="1" cols="6"  readonly > <%= lettergrade %> </textarea>
+
+			<span style="font-style: italic; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"  > 
+				equivalent to CGPA 
+				<textarea id="subject_name" name="subject_name" class="subject_name"  style=" border: none; width: 48px; 
+				min-height: min-content;
+				scroll-margin: unset ; font-weight: bolder;  overflow: hidden; outline: hidden; 
+				resize: none;  background-color: transparent; 
+				padding-top: 0px ; font-size: .99rem; border-top-width: 5px; vertical-align: middle;
+				font-family: 'Dancing Script', cursive; 
+				"      	
+				rows="1" cols="6"  readonly > <%= cgpa %>  </textarea>
+
+				in a scale of 4.00
+			
+			<span style="font-weight:bold"> </span>
+			<p id="cdate"></p>
+				
+			<!-- </div>
+			<div class="picture" >
+				<img src="/images/logo.png" height="80" width="80" alt="Flying Kites"><br>
+			</div>
+			</div> -->
+
+		</div>
+		<div class="picture" >
+			<img src="  <%= imgurl %> " alt="Flying Kites">  <br>
+		</div>
+		</div>
+			
+			<button    
+		id = '<=% user %>'
+		style=" margin-top: 450px; margin-left: 890px; "> 
+			 <a href="/dashboard"> </a>
+				<p class="text-center font-weight-bold" onclick="goBack()" ><b>Go Back</b></p> 
+			 </button> %>
+
+			<footer style=" margin-top: 50px;  ">
+				<p class="text-center font-weight-bold" >&copy; BlockChain Project 350</p>
+			</footer>
+			
+			
+			<script src="/javascripts/viewresult.js"></script>
+	</body>
+
+</html>
+

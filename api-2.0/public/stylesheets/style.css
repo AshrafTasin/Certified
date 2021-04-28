@@ -115,7 +115,7 @@ form.sign-in-form {
   border: #333;
   color: #acacac;
   transition: 0.5s;
-  font-size: 1.1rem;
+  font-size: 1.7rem;
   position: relative;
 }
 
@@ -128,7 +128,7 @@ form.sign-in-form {
  
   font-weight: 600;
   margin-top: 10px 10px;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: #333;
 }
 
@@ -138,6 +138,7 @@ form.sign-in-form {
   padding: 25%;
   align-content: center;
   position: relative;
+  font-size: 1.3rem;
 }
 
 .social-text {

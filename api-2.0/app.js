@@ -53,6 +53,8 @@ logger.info('****************** SERVER STARTED ************************');
 logger.info('***************  http://%s:%s  ******************', host, port);
 server.timeout = 240000;
 
+
+
 function getErrorMessage(field) {
     var response = {
         success: false,
@@ -81,23 +83,86 @@ function checkUser(req,res,next){
     }
 }
 
+function currentState(req,res,next){
 
-app.get('/register',(req,res) => {
+    const token = req.cookies.jwt;
 
-    res.render('register.ejs');
+    // check json web token exists & is verified
+    if (token) {
+      jwt.verify(token, 'thisismysecret', (err, decodedToken) => {
+        if (err) {
+          console.log(err.message);
+          res.redirect('/login');
+        } else {
+          console.log(decodedToken);
+          if(decodedToken.orgName == "sust")
+            next();
+        }
+      });
+    } else {
+      res.redirect('/login');
+    }
+}
 
-})
 
-app.get('/login', (req,res) => {
 
-    res.render('login.ejs')
-})
+///  SUST ///
 
-app.get('/index',checkUser, (req,res) => {
+app.get('/index',checkUser,currentState,(req,res) => {
     res.render('index')
 })
 
-app.get('/query',checkUser, async function (req, res) {
+app.post('/invoke',checkUser,currentState,async function (req, res) {
+    try {
+        logger.debug('==================== INVOKE ON CHAINCODE ==================');
+
+        var fcn = "addStudent";
+        var args = req.body.args;
+        var transient = req.body.transient;
+        const authHeader = req.headers['authorization']
+        const token = authHeader && authHeader.split(' ')[1]
+        
+        logger.debug('args  : ' + args);
+        
+
+        if (!args) {
+            res.json(getErrorMessage('\'args\''));
+            return;
+        }
+
+        var decoded = jwt.decode(token,{complete : true});
+        
+        // let message = await invoke.invokeTransaction(channelName, chaincodeName, fcn, args, req.username, req.orgname, transient);
+        console.log("Eita hoitase ....." + req.username)
+
+        let message = await invoke.invokeTransaction(fcn, args,decoded.payload.username, decoded.payload.orgName, transient);
+        console.log(`message result is : ${message}`)
+
+        const response_payload = {
+            result: message,
+            error: null,
+            errorData: null
+        }
+        res.send(response_payload);
+
+    } catch (error) {
+        const response_payload = {
+            result: null,
+            error: error.name,
+            errorData: error.message
+        }
+        res.send(response_payload)
+    }
+});
+
+app.get('/logout', (req,res) => {
+    
+    res.cookie('jwt', '', { maxAge: 1 });
+    res.redirect('/login');
+
+})
+
+app.get('/query',checkUser,currentState,async function (req, res){
     try {
         logger.debug('==================== QUERY BY CHAINCODE ==================');
 
@@ -141,18 +206,127 @@ app.get('/query',checkUser, async function (req, res) {
             errorData: null
         }
 
-        res.render('result' ,{ 
+    
+        if( message!= null){
+            res.render('result' ,{ 
 
-            name: message.name,
-            reg : message.reg,
-            dept: message.dept,
-            school: message.school,
-            year: message.year,
-            cgpa: message.cgpa,
-            lettergrade: message.lettergrade,
-            distinction: message.distinction,
-            imgurl: message.imgurl
-        });       
+                name: message.name,
+                reg : message.reg,
+                dept: message.dept,
+                school: message.school,
+                year: message.year,
+                cgpa: message.cgpa,
+                lettergrade: message.lettergrade,
+                distinction: message.distinction,
+                imgurl: message.imgurl,
+                err : null,
+            });  
+        }else{
+            res.status(404).render('index')
+        }
+
+     
+
+    } catch (error) {
+        const response_payload = {
+            result: null,
+            error: error.name,
+            errorData: error.message
+        }
+        res.send(response_payload)
+    }
+
+})
+
+app.get('/stats',checkUser,currentState,(req,res) => {
+    res.render('stats')
+})
+
+app.get(('/querystudent'),checkUser,currentState,(req,res) =>{
+    res.render('querystudent')
+})
+
+
+/// STARTECH ////
+
+app.get('/dashboard',checkUser, (req,res) => {
+    
+    res.render('dashboard');
+
+})
+
+app.get('/channelinfo',checkUser,(req,res) => {
+    res.render('channelinfo')
+})
+
+app.get('/result',checkUser,(req,res) => {
+    res.render('result')
+})
+
+app.get('/querystudentcert',checkUser, async function (req, res) {
+    try {
+        logger.debug('==================== QUERY BY CHAINCODE ==================');
+
+        var channelName = req.query.channelName;
+        var chaincodeName = req.query.chaincodeName;
+        console.log(`chaincode name is :${chaincodeName}`)
+        let args = req.query.args;
+        let fcn = req.query.fcn;
+
+        logger.debug('channelName : ' + channelName);
+        logger.debug('chaincodeName : ' + chaincodeName);
+        logger.debug('fcn : ' + fcn);
+        logger.debug('args : ' + args);
+
+        if (!chaincodeName) {
+            res.json(getErrorMessage('\'chaincodeName\''));
+            return;
+        }
+        if (!channelName) {
+            res.json(getErrorMessage('\'channelName\''));
+            return;
+        }
+        if (!fcn) {
+            res.json(getErrorMessage('\'fcn\''));
+            return;
+        }
+        if (!args) {
+            res.json(getErrorMessage('\'args\''));
+            return;
+        }
+        console.log('args==========', args);
+        args = args.replace(/'/g, '"');
+        args = JSON.parse(args);
+        logger.debug(args);
+
+        let message = await query.query(channelName, chaincodeName, args, fcn, req.query.username, req.query.orgname);
+
+        const response_payload = {
+            result: message,
+            error: null,
+            errorData: null
+        }
+
+    
+        if( message!= null){
+            res.render('viewresult' ,{ 
+
+                name: message.name,
+                reg : message.reg,
+                dept: message.dept,
+                school: message.school,
+                year: message.year,
+                cgpa: message.cgpa,
+                lettergrade: message.lettergrade,
+                distinction: message.distinction,
+                imgurl: message.imgurl,
+                err : null,
+            });  
+        }else{
+            res.status(404).render('dashboard')
+        }
+
+     
 
     } catch (error) {
         const response_payload = {
@@ -164,33 +338,19 @@ app.get('/query',checkUser, async function (req, res) {
     }
 });
 
-app.get('/logout', (req,res) => {
-    
-    res.cookie('jwt', '', { maxAge: 1 });
-    res.redirect('/login');
 
-})
+// COMMON ///
 
-app.get('/stats',checkUser,(req,res) => {
-    res.render('stats')
-})
+app.get('/register',(req,res) => {
 
+    res.render('register.ejs');
 
-app.get('/dashboard',checkUser, (req,res) => {
-    
-    res.render('dashboard');
+});
 
-})
+app.get('/login', (req,res) => {
 
-app.get('/result',checkUser,(req,res) => {
-    res.render('result')
-})
-
-
-app.get('/channelinfo',checkUser,(req,res) => {
-    res.render('channelinfo')
-})
-
+    res.render('login.ejs')
+});
 
 app.post('/register', async function (req, res) {
     
@@ -260,51 +420,9 @@ app.post('/login', async function (req, res) {
     }
 });
 
-app.post('/invoke',checkUser,async function (req, res) {
-    try {
-        logger.debug('==================== INVOKE ON CHAINCODE ==================');
-
-        var fcn = "addStudent";
-        var args = req.body.args;
-        var transient = req.body.transient;
-        const authHeader = req.headers['authorization']
-        const token = authHeader && authHeader.split(' ')[1]
-        
-        logger.debug('args  : ' + args);
-        
-
-        if (!args) {
-            res.json(getErrorMessage('\'args\''));
-            return;
-        }
-
-        var decoded = jwt.decode(token,{complete : true});
-        
-        // let message = await invoke.invokeTransaction(channelName, chaincodeName, fcn, args, req.username, req.orgname, transient);
-        console.log("Eita hoitase ....." + req.username)
-
-        let message = await invoke.invokeTransaction(fcn, args,decoded.payload.username, decoded.payload.orgName, transient);
-        console.log(`message result is : ${message}`)
-
-        const response_payload = {
-            result: message,
-            error: null,
-            errorData: null
-        }
-        res.send(response_payload);
-
-    } catch (error) {
-        const response_payload = {
-            result: null,
-            error: error.name,
-            errorData: error.message
-        }
-        res.send(response_payload)
-    }
-});
 
 app.get('/',(req,res)=>{
-    res.render('indexcopy')
+    res.render('login')
 })
 
 

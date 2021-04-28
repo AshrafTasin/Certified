@@ -9,7 +9,7 @@
 }
 .picture{
 
-  margin-left: 1175px;
+  margin-left: 1190px;
   padding-top: 50px;
   margin-top: -665px;
   width: 150px;
@@ -28,13 +28,11 @@
 .centered {
   position: absolute;
   width:400px;
-  top: 22%;
+  top: 19%;
   left: 39%;
   margin-top: 140px;
 }
-footer{
-  
-}
+
 
 .form__group {
   position: unset;

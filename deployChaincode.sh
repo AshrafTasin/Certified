@@ -216,7 +216,7 @@ chaincodeInvokeInit() {
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_STARTECH_CA \
         --isInit -c '{"Args":[]}'
 
-    echo " -- : Done : --"
+    echo " -- : Done : -- "
     echo ""
 
 }

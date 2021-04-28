@@ -39,7 +39,7 @@ setGlobalsForPeer1STARTECH(){
 }
 
 createChannel(){
-    # rm -rf ./channel-artifacts/*
+   
     setGlobalsForPeer0SUST
     
     peer channel create -o localhost:7050 -c $CHANNEL_NAME \
