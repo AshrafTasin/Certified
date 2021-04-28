@@ -24,7 +24,8 @@ This will bring up the network
 command : cd api-2.0
 
 4. Run the following command : npm install
-This will install all the dependency required for this project
+This will install all the dependency required for this project.
+now run : nodemon app.js
 
 5.If you get the error : "Internal watch failed: ENOSPC: System limit for number of file watchers reached"
 run : echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
