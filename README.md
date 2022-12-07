@@ -6,6 +6,12 @@ Hyperledger Fabric based Certificate Verification System
 - Now Organization (SUST/StarTech) can query using students id no and if it's in the blockchain <br/>
   they will see a **Certificate inscripted with students details, CGPA** ,other details associated with it.
 
+# Screenshots :
+
+<img src="https://i.ibb.co/HFptgG4/certified-ppng3.png">
+<img src="https://i.ibb.co/sWN1yFf/certified-ppng2.png">
+<img src="https://i.ibb.co/g9dBh42/certified-ppng.png">
+
 # Prerequisition:
 Make sure you have `hyperledger fabric binaries`, `GoLang` , ``Docker`` , ``Docker Container`` , ``node`` installed in your system. And all the path added correctly to system.
 also install nodemon package using
