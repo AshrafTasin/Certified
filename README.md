@@ -6,6 +6,9 @@ Hyperledger Fabric based Certificate Verification System
 - Now Organization (SUST/StarTech) can query using students id no and if it's in the blockchain <br/>
   they will see a **Certificate inscripted with students details, CGPA** ,other details associated with it.
 
+
+## Team-Members : 2017331014 & 2017331064
+
 # Screenshots :
 
 <img src="https://i.ibb.co/HFptgG4/certified-ppng3.png">
